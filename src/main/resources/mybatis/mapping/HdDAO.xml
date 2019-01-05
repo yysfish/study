@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yzs.study.modules.dao.HdDAO">
+	<select id="qry" parameterType="com.yzs.study.modules.entity.HdEntity" resultType="String">
+		select
+			top7
+		from
+			jyc_flow_hd_new
+		where
+			cityname LIKE concat('${cityName}', '%')
+			<if test="phoneType != null and phoneType != ''">
+				AND phonetype=#{phoneType}
+			</if>
+			
+	</select>
+</mapper>
